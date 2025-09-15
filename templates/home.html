@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Design an Enzyme page</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato: 100,300,400,700|Luckiest+Guy|Oxygen:300,400" rel="stylesheet">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+  <title>Radio Input</title>
+  <body>
+    <section id="overlay">
+      <section id="links">
+        <img src="static/ChatGPT Image Aug 27, 2025, 01_09_04 AM.png" alt="XenoForge" id="logo">
+        <h2 id = "XenoForge-heading">XenoForge</h2>
+        <a href = "/about-page" id = "about-page">Home</a>
+        <a href = "/account-page" id = "account-page">Account</a>
+        <a href = "/home" id = "home-page">Design</a>
+        <a href = "/process-page" id = "process-page">Process</a>
+      </section>
+      <section>
+        <h1>Design an Enzyme</h1>
+        <text id = "motto">AI for enzymes, enzymes for the planet</text>
+        <img src = "https://img.freepik.com/free-photo/3d-abstract-technology-background-with-flowing-data-waves_1048-18869.jpg?semt=ais_hybrid&w=740" alt = "background-img" id = background-img>
+      </section>
+      <form method="POST" action = "/home">
+        <section class="pollutant-name">
+          <label for="pollutant_text">Enter the name of your desired pollutant:</label>
+          <input type="text" name="pollutant_text" id="pollutant_text">
+        </section>
+<!--        <br>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <section class="patties">-->
+<!--          <label for="amount">How many patties would you like?</label>-->
+<!--          <input type="number" name="amount" id="amount">-->
+<!--        </section>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <section class="cooked">-->
+<!--          <label for="doneness">How do you want your patty cooked</label>-->
+<!--          <br>-->
+<!--          <span>Rare</span>-->
+<!--          <input type="range" name="doneness" id="doneness" value="3" min="1" max="5">-->
+<!--          <span>Well-Done</span>-->
+<!--        </section>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <section class="toppings">-->
+<!--          <span>What toppings would you like?</span>-->
+<!--          <br>-->
+<!--          <input type="checkbox" name="topping" id="lettuce" value="lettuce">-->
+<!--          <label for="lettuce">Lettuce</label>-->
+<!--          <input type="checkbox" name="topping" id="tomato" value="tomato">-->
+<!--          <label for="tomato">Tomato</label>-->
+<!--          <input type="checkbox" name="topping" id="onion" value="onion">-->
+<!--          <label for="onion">Onion</label>-->
+<!--        </section>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <section class="cheesy">-->
+<!--          <span>Would you like to add cheese?</span>-->
+<!--          <br>-->
+<!--          <input type = "radio" name = "cheese" id = "yes" value = "yes">-->
+<!--          <label for="yes">Yes</label>-->
+<!--          <br>-->
+<!--          <br>-->
+<!--          <br>-->
+<!--          <input type = "radio" name = "cheese" id = "no" value = "no">-->
+<!--          <label for="no">No</label>-->
+<!--        </section>-->
+<!--        <section class = "bun">-->
+<!--          <label for = "bun">What type of bun would you like?</label>-->
+<!--          <select name = "bun" id = "bun" >-->
+<!--            <option value = "sesame">Sesame</option>-->
+<!--            <option value = "potato">Potato</option>-->
+<!--            <option value = "pretzel">Pretzel</option>-->
+<!--          </select>-->
+<!--          <br>-->
+<!--          <br>-->
+<!--          <br>-->
+<!--        </section>-->
+<!--        <section class="sauce-selection">-->
+<!--          <label for="sauce">What type of sauce would you like?</label>-->
+<!--          <input type="text" list="sauces" id="sauce" name="sauce">-->
+<!--          &lt;!&ndash;Add your code below&ndash;&gt;-->
+<!--          <datalist id = "sauces">-->
+<!--            <option value = "ketchup"></option>-->
+<!--            <option value = "mayo"></option>-->
+<!--            <option value = "mustard"></option>-->
+<!--          </datalist>-->
+<!--        </section>-->
+        <section class = "submission">
+          <input type = "submit" value = "Submit">
+        </section>
+      </form>
+    </section>
+    {% if user_text %}
+      <h2 id = "random_text">SMILES: {{ user_text }}</h2>
+    {% endif %}
+
+    {% if compound_id %}
+      <h2 id = "random_text2">Compound ID: {{ compound_id }}</h2>
+    {% endif %}
+
+    {% if rxn_result %}
+      <h3 id = "rxn header">{{ rxn_result }}</h3>
+      <form id="reaction_form">
+        {% for reaction in products %}
+        <div>
+          <input type="radio" id="{{ reaction.reaction_id }}" name="reaction" value="{{ reaction.reaction_id }}">
+          <label for="{{ reaction.reaction_id }}">
+            <h2>Reaction ID: {{ reaction.reaction_id }}</h2>
+            <ul>
+              {% for key, value in reaction.items() %}
+              {% if key != "reaction_id" %}
+              <li><b>{{ key }}</b>: {{ value }}</li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </label>
+          {% if reaction.toxicity == "Toxic" or reaction.toxicity == "Toxicity could not be determined" %}
+          <img src="{{ url_for('static', filename='static/ChatGPT Image Sep 13, 2025, 10_16_37 PM.png') }}" alt="Warning Icon">
+          {% endif %}
+        </div>
+        {% endfor %}
+      </form>
+    {% endif %}
+  </body>
+</html>
