@@ -2,18 +2,19 @@ body {
   background: #00081e;
   margin: 0;
   padding: 0;
-  overflow: overlay;
+  overflow-x: hidden;
 }
 #background-img {
   object-fit: contain;
-  height: 2000px;
-  width: 2550px;
+  height: 200%;
+  width: 200%;
   z-index: 1;
-  margin-left: 0px;
-  margin-top: 0px;
-  position: relative;
-  bottom: 750px;
-  padding: 0px;
+  left: -50%;
+  bottom: -15%;
+  margin-left: 0;
+  margin-top: 0;
+  position: absolute;
+  padding: 0;
   filter: brightness(50%);
 }
 
@@ -23,23 +24,24 @@ h1, p, li, form  {
 }
 
 h1 {
-  position: relative;
-      bottom: -100px;
-      right: -100px;
-      font-size: 85px;
-      z-index: 99;
-      padding: 0px;
+  position: absolute;
+  bottom: 50%;
+  left: 6%;
+  font-size: 85px;
+  z-index: 99;
+  padding: 0;
 }
 
 form {
-  position: relative;
-  left: 100px;
-  bottom: 1800px;
-  padding: 50px;
-  width: 1200px;
-  box-shadow: 20px 20px rgba(34, 50, 161);
-  z-index: 4;
-  background-color: rgba(0, 0, 0, 0.7)
+  position: absolute;
+  left: 6%;
+  top: 80%; /* Center vertically */
+  transform: translateY(-50%);
+  width: 75%;
+  box-shadow: 20px 20px rgba(34, 50, 161, 0.7);
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.7);
+  min-height: 30%;
 }
 
 .pollutant-name, .patties, .cooked, .toppings, .cheesy, .bun, .sauce-selection {
@@ -48,9 +50,11 @@ form {
 
 #logo {
   object-fit: contain;
-  width: 150px;
-  height: 150px;
-  position: relative;
+  width: 100%;
+  height: 100%;
+  left: -45%;
+  bottom: 0;
+  position: absolute;
 }
 
 #XenoForge-heading {
@@ -58,9 +62,9 @@ form {
   font-family: sans-serif;
   font-size: 50px;
   font-weight: bold;
-  position: relative;
-  left: 130px;
-  bottom: 150px;
+  position: absolute;
+  left: 8%;
+  bottom: 17%;
   font-style: italic;
 }
 
@@ -93,33 +97,34 @@ form {
 }
 
 #about-page {
-  position: relative;
-  bottom: 215px;
-  left: 500px;
+  position: absolute;
+  bottom: 24%;
+  left: 30%;
 }
 
 #account-page {
-  position: relative;
-  bottom: 215px;
-  left: 600px;
+  position: absolute;
+  bottom: 24%;
+  left: 40%;
 }
 
 #home-page {
-  position: relative;
-  bottom: 215px;
-  left: 700px;
+  position: absolute;
+  bottom: 24%;
+  left: 50%;
 }
 #process-page {
-  position: relative;
-  bottom: 215px;
-  left: 800px;
+  position: absolute;
+  bottom: 24%;
+  left: 60%;
 }
 
 #links {
   background-color: rgb(0, 0, 0, 0.5);
   z-index: 999;
-  position: relative;
-  height: 150px;
+  position: absolute;
+  height: 20%;
+  width: 100%;
 }
 
 
@@ -130,9 +135,9 @@ form {
   color: #f7f7ed;
   font-family: sans-serif;
   font-size: 15px;
-  position: relative;
-  bottom: -50px;
-  left: 110px;
+  position: absolute;
+  bottom: 45%;
+  left: 6%;
   z-index: 10;
 }
 
@@ -147,11 +152,21 @@ form {
 }
 
 #pollutant_text {
-  bottom: 1850px;
+  position: absolute;
+  bottom: 60%;
+  left: 4%;
 }
 
 #reaction_form {
-  bottom: 1600px;
+  position: absolute;
+  left: 6%;
+  top: 80%; /* Center vertically */
+  transform: translateY(-50%);
+  width: 75%;
+  box-shadow: 20px 20px rgba(34, 50, 161, 0.7);
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.7);
+  min-height: 30%;
 }
 
 * {
@@ -163,22 +178,27 @@ form {
 
 
 button {
-  position: relative;
-  padding: 15px 45px;
+  position: absolute;
   width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
-  border-radius: 15px;
+  border-radius: 20%;
   border: 2px solid lightblue;
   background: none;
   color: lightblue;
   cursor: pointer;
   outline: none;
   transition: 200ms;
-    bottom: -20px;
-    left: 100px;
+  bottom: 15%;
+  left: 4%;
+}
+
+#pollutant_label {
+  position: absolute;
+  bottom: 75%;
+  left: 4%;
 }
 
 button:hover {
@@ -196,9 +216,10 @@ button:focus {
   outline: none;
   border: 2px solid transparent;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  padding: 25px 25px;
+  width: 15%;
+  height: 10%;
+  bottom: 15%;
+  left: 5%;
   border-left: 2px solid lightblue;
   animation: spin 2s 500ms forwards;
 }

@@ -13,6 +13,7 @@ from generate_seq import (
     generate_new_seqs)
 from ESMFold import get_protein_prediction_pdb, extract_plddt_average
 from prediction_models import get_temp, get_pH
+from huggingface_hub import hf_hub_download
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "mysecret"
 
@@ -120,13 +121,13 @@ classifier = pipeline("text-classification", model=model, tokenizer=tokenizer, t
 df = pd.read_csv("hf://datasets/HUBioDataLab/tox21/data.csv")
 label_cols = [col for col in df.columns if col != 'smiles']
 
-model_path2 = r"C:\Users\admin\PycharmProjects\XenoForge\location_molformer"
+model_path2 = "Kinsleykinsley/Location_Molformer"
 model2 = AutoModelForSequenceClassification.from_pretrained(model_path2, trust_remote_code=True)
 tokenizer2 = AutoTokenizer.from_pretrained(model_path2, trust_remote_code=True)
 classifier2 = pipeline("text-classification", model=model2, tokenizer=tokenizer2, top_k=None)
 
 
-model_path3 = r"C:\Users\admin\PycharmProjects\XenoForge\ec_molformer"
+model_path3 = "Kinsleykinsley/EC_Molformer"
 model3 = AutoModelForSequenceClassification.from_pretrained(model_path3, trust_remote_code=True)
 tokenizer3 = AutoTokenizer.from_pretrained(model_path3, trust_remote_code=True)
 classifier3 = pipeline("text-classification", model=model3, tokenizer=tokenizer3)
@@ -318,7 +319,10 @@ def get_products_from_reaction(rxn_id, desired_cid):
 
 
 
-
+amide_file_path = hf_hub_download(repo_id="Kinsleykinsley/nitrite_model", filename="pytorch_eos_progen2-small_epoch_6.pt")
+ester_file_path = hf_hub_download(repo_id="Kinsleykinsley/ester_model", filename="pytorch_eos_progen2-small_epoch_12.pt")
+glycosyl_file_path = hf_hub_download(repo_id="Kinsleykinsley/glycosyl_model", filename="pytorch_eos_progen2-small_epoch_15.pt")
+halide_file_path = hf_hub_download(repo_id="Kinsleykinsley/halide_model", filename="pytorch_eos_progen2-small_epoch_8.pt")
 
 @app.route('/')
 @app.route('/about-page')
@@ -509,7 +513,8 @@ def home():
         else:
             print("No user_text provided!")
 
-    model_list= {"ester hydrolase": r"C:\Users\admin\PycharmProjects\XenoForge\ester_hydrolase_model\pytorch_eos_progen2-small_epoch_12.pt", "glycosyl hydrolase": r"C:\Users\admin\PycharmProjects\XenoForge\glycosl_hydrolase_model\pytorch_eos_progen2-small_epoch_15.pt", "amide/nitrile hydrolase": r"C:\Users\admin\PycharmProjects\XenoForge\nitrile_hydrolase_model\pytorch_eos_progen2-small_epoch_6.pt", "halide hydrolase": r"C:\Users\admin\PycharmProjects\XenoForge\halide_hydrolase_model\pytorch_eos_progen2-small_epoch_8.pt"}
+
+    model_list= {"ester hydrolase": ester_file_path, "glycosyl hydrolase": glycosyl_file_path, "amide/nitrile hydrolase": amide_file_path, "halide hydrolase": halide_file_path}
     print(f"\nFinal values before render:")
     print(f"selected_reaction: '{selected_reaction}'")
     print(f"selected_reaction_details: {selected_reaction_details}")

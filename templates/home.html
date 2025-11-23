@@ -20,18 +20,19 @@
       <section>
         <h1>Design an Enzyme</h1>
         <text id = "motto">AI for enzymes, enzymes for the planet</text>
+        <form method="POST" action = "/home" id = "pollutant_text">
+            <section class="pollutant-name">
+                <label for="pollutant_text" id = 'pollutant_label'>Enter the name of your desired pollutant:</label>
+                <input type="text" name="pollutant_text" id="pollutant_text">
+            </section>
+            <button id = "submission">
+                Submit
+                <i class="fa-solid fa-check"></i>
+            </button>
+        </form>
         <img src = "https://img.freepik.com/free-photo/3d-abstract-technology-background-with-flowing-data-waves_1048-18869.jpg?semt=ais_hybrid&w=740" alt = "background-img" id = background-img>
       </section>
-      <form method="POST" action = "/home" id = "pollutant_text">
-    <section class="pollutant-name">
-      <label for="pollutant_text">Enter the name of your desired pollutant:</label>
-      <input type="text" name="pollutant_text" id="pollutant_text">
-    </section>
-    <button id = "submission">
-        Submit
-        <i class="fa-solid fa-check"></i>
-    </button>
-  </form>
+
 </section>
 {% if user_text %}
   <h2 id = "random_text">SMILES: {{ user_text }}</h2>

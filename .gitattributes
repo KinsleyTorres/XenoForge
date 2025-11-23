@@ -9,4 +9,7 @@
 *.mha filter=lfs diff=lfs merge=lfs -text
 *.gz filter=lfs diff=lfs merge=lfs -text
 *.safetensors filter=lfs diff=lfs merge=lfs -text
+*pytorch_eos_progen2-small_epoch_*.pt !text !filter !merge !diff
 *.pt !text !filter !merge !diff
+pH_model/model.safetensors !text !filter !merge !diff
+temp_model/model.safetensors !text !filter !merge !diff
