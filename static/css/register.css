@@ -1,0 +1,237 @@
+#login-text {
+  position: relative;
+  color: whitesmoke;
+  left: 200px;
+  bottom: -50px;
+}
+
+#logo {
+  object-fit: contain;
+  width: 150px;
+  height: 150px;
+  position: relative;
+}
+
+#XenoForge-heading {
+  color: #f7f7ed;
+  font-family: sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+  position: relative;
+  left: 150px;
+  bottom: 100px;
+  font-style: italic;
+}
+
+#links {
+    background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  position: relative;
+  height: 150px;
+}
+
+
+body {
+    background: #020212;
+    margin: 0;
+    padding: 0;
+    overflow: overlay;
+}
+
+
+#home-page {
+    color: #f7f7ed;
+    font-family: sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  background-image: linear-gradient(to right, #18edb4 50%, #020212 50%);
+  background-size: 200% 3px;
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  transition: background-position .3s;
+    position: relative;
+    left: 550px;
+    bottom: 140px;
+}
+
+#home-page:hover {
+  background-position: 0% 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+button {
+  position: relative;
+  padding: 15px 45px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  border-radius: 15px;
+  border: 2px solid lightblue;
+  background: none;
+  color: lightblue;
+  cursor: pointer;
+  outline: none;
+  transition: 200ms;
+    bottom: -130px;
+    left: 200px;
+}
+
+button:hover {
+  color: whitesmoke;
+  border: 2px solid whitesmoke;
+}
+
+i {
+  position: absolute;
+  color: transparent;
+  transition: 200ms;
+}
+button:focus {
+  color: transparent;
+  outline: none;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 25px 25px;
+  border-left: 2px solid lightblue;
+  animation: spin 2s 500ms forwards;
+}
+button:focus i {
+  animation: check 300ms 2250ms forwards;
+}
+
+@keyframes spin {
+  80% {
+    border: 2px solid transparent;
+    border-left: 2px solid lightblue;
+  }
+  100% {
+    transform: rotate(720deg);
+    border: 2px solid lightblue;
+  }
+}
+
+@keyframes check {
+  to {
+    color: lightblue;
+  }
+}
+
+/* From Uiverse.io by liyaxu123 */
+.form-control {
+  position: relative;
+  margin: 20px 0 40px;
+  width: 190px;
+    bottom: -100px;
+    left: 200px;
+}
+
+.form-control input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px #fff solid;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 18px;
+  color: #fff;
+}
+
+.form-control input:focus,
+.form-control input:valid {
+  outline: 0;
+  border-bottom-color: lightblue;
+}
+
+.form-control label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  pointer-events: none;
+}
+
+.form-control label span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  color: #fff;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus+label span,
+.form-control input:valid+label span {
+  color: lightblue;
+  transform: translateY(-30px);
+}
+
+
+
+
+
+
+.password {
+  position: relative;
+  margin: 20px 0 40px;
+  width: 190px;
+    bottom: -100px;
+    left: 200px;
+}
+
+.password input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px #fff solid;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 18px;
+  color: #fff;
+}
+
+.password input:focus,
+.password input:valid {
+  outline: 0;
+  border-bottom-color: lightblue;
+}
+
+.password label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  pointer-events: none;
+}
+
+.password label span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  color: #fff;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.password input:focus+label span,
+.password input:valid+label span {
+  color: lightblue;
+  transform: translateY(-30px);
+}
+
+#viewport {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: 30px auto;
+    background: #00161e;
+    left: 200px;
+    bottom: 350px;
+}

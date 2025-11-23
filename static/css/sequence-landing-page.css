@@ -1,0 +1,9 @@
+body {
+    background: #00081e;
+}
+
+#title {
+    color: whitesmoke;
+    font-size: 40px;
+    left: 100px;
+}

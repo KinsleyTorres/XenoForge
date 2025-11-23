@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato: 100,300,400,700|Luckiest+Guy|Oxygen:300,400" rel="stylesheet">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<script src="https://cdn.jsdelivr.net/npm/ngl@2.0.0-dev.38/dist/ngl.js"></script>
+<body>
+<div id="overlay">
+    <section id="links">
+        <img src="static/ChatGPT Image Aug 27, 2025, 01_09_04 AM.png" alt="XenoForge" id="logo">
+        <h2 id = "XenoForge-heading">XenoForge</h2>
+        <a href = "/home" id = "home-page">Home</a>
+
+    </section>
+</div>
+  <h1 id = "login-text">Login</h1>
+  <form id="signin-form" method="POST" action="/login">
+
+    <div class="form-control">
+        <input type="text" name="username" id="username" required>
+    <label>
+        <span style="transition-delay:0ms">U</span><span style="transition-delay:50ms">s</span><span style="transition-delay:100ms">e</span><span style="transition-delay:150ms">r</span><span style="transition-delay:200ms">n</span><span style="transition-delay:250ms">a</span><span style="transition-delay:300ms">m</span><span style="transition-delay:350ms">e</span>
+    </label>
+    </div>
+
+    <div class="password">
+        <input type="text" name="password" id="password" required>
+    <label>
+        <span style="transition-delay:0ms">P</span><span style="transition-delay:50ms">a</span><span style="transition-delay:100ms">s</span><span style="transition-delay:150ms">s</span><span style="transition-delay:200ms">w</span><span style="transition-delay:250ms">o</span><span style="transition-delay:300ms">r</span><span style="transition-delay:350ms">d</span>
+    </label>
+    </div>
+      <button>
+          Sign in
+          <i class="fa-solid fa-check"></i>
+      </button>
+  </form>
+  <div id="viewport"></div>
+  <button id="resetView">Reset View</button>
+
+  <script>
+    // Initialize the viewer in the 'viewport' div
+    const stage = new NGL.Stage("viewport", { backgroundColor: "#020212" });
+
+    // Load the PDB file from your Flask static path
+    const pdbUrl = "static/prediction.pdb";
+    console.log("Loading PDB:", pdbUrl);
+
+    stage.loadFile(pdbUrl, { ext: "pdb" }).then(function (component) {
+      component.addRepresentation("cartoon", {colorScheme: "bfactor", colorScale: "RdYlBu",});
+      component.autoView();
+      console.log("✅ Model loaded successfully!");
+      stage.setSpin(true);
+      stage.setSpinAxis([0, 1, 0]);
+      stage.setSpinSpeed(0.5);
+
+    }).catch(function (error) {
+      console.error("❌ Failed to load PDB:", error);
+    });
+
+
+
+
+    // Reset camera view
+    document.getElementById("resetView").addEventListener("click", () => {
+      stage.autoView();
+    });
+
+    // Handle window resizing
+    window.addEventListener("resize", () => stage.handleResize(), false);
+  </script>
+</body>
+</html>

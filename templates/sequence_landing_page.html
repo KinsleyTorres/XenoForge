@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sequence-landing-page.css') }}">
+</head>
+<body>
+<h1 id = "title">
+    Generated Amino Acid Sequences
+</h1>
+<form action="/view_in_3d" method="POST">
+    {% for row in rows %}
+        <div>
+            <input type="radio" id="row_{{ loop.index }}" name="selected_row" value="{{ row.sequence }}">
+            <label for="row_{{ loop.index }}">{{ row.sequence }}
+                <ul>
+                    <li>Quality score: {{ row.quality_score }}</li>
+                    <li>Length: {{ row.length }}</li>
+                    <li>Has Repeats: {{ row.has_repeats }}</li>
+                    <li>Has Long Repeats: {{ row.has_long_repeats }}</li>
+                    <li>Low Complexity: {{ row.low_complexity }}</li>
+                    <li>Diversity: {{ row.diversity }}</li>
+                    <li>Hydrophobic Ratio: {{ row.hydrophobic_ratio }}</li>
+                    <li>Polar Ratio: {{ row.polar_ratio }}</li>
+                    <li>Charged Ratio: {{ row.charged_ratio }}</li>
+                    <li>Terminated Naturally: {{ row.terminated_naturally }}</li>
+                </ul>
+            </label>
+        </div>
+    {% endfor %}
+    <section class = "submission2">
+      <input type = "submit" value = "Submit">
+    </section>
+</form>
+<a href="/home">Return to home page</a>
+</body>
+</html>

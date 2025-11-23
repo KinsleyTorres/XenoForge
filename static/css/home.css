@@ -1,0 +1,224 @@
+body {
+  background: #00081e;
+  margin: 0;
+  padding: 0;
+  overflow: overlay;
+}
+#background-img {
+  object-fit: contain;
+  height: 2000px;
+  width: 2550px;
+  z-index: 1;
+  margin-left: 0px;
+  margin-top: 0px;
+  position: relative;
+  bottom: 750px;
+  padding: 0px;
+  filter: brightness(50%);
+}
+
+h1, p, li, form  {
+  font-family: sans-serif;
+  color: #f7f7ed;
+}
+
+h1 {
+  position: relative;
+      bottom: -100px;
+      right: -100px;
+      font-size: 85px;
+      z-index: 99;
+      padding: 0px;
+}
+
+form {
+  position: relative;
+  left: 100px;
+  bottom: 1800px;
+  padding: 50px;
+  width: 1200px;
+  box-shadow: 20px 20px rgba(34, 50, 161);
+  z-index: 4;
+  background-color: rgba(0, 0, 0, 0.7)
+}
+
+.pollutant-name, .patties, .cooked, .toppings, .cheesy, .bun, .sauce-selection {
+  color: #f7f7ed;
+}
+
+#logo {
+  object-fit: contain;
+  width: 150px;
+  height: 150px;
+  position: relative;
+}
+
+#XenoForge-heading {
+  color: #f7f7ed;
+  font-family: sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+  position: relative;
+  left: 130px;
+  bottom: 150px;
+  font-style: italic;
+}
+
+#account-page, #home-page, #process-page, #about-page {
+  color: #f7f7ed;
+  font-family: sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  background-image: linear-gradient(to right, #18edb4 50%, #030126 50%);
+  background-size: 200% 3px;
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  transition: background-position .3s;
+}
+
+#account-page:hover {
+  background-position: 0% 100%;
+}
+
+#about-page:hover {
+  background-position: 0% 100%;
+}
+#process-page:hover {
+  background-position: 0% 100%;
+}
+
+#home-page:hover {
+  background-position: 0% 100%;
+}
+
+#about-page {
+  position: relative;
+  bottom: 215px;
+  left: 500px;
+}
+
+#account-page {
+  position: relative;
+  bottom: 215px;
+  left: 600px;
+}
+
+#home-page {
+  position: relative;
+  bottom: 215px;
+  left: 700px;
+}
+#process-page {
+  position: relative;
+  bottom: 215px;
+  left: 800px;
+}
+
+#links {
+  background-color: rgb(0, 0, 0, 0.5);
+  z-index: 999;
+  position: relative;
+  height: 150px;
+}
+
+
+
+
+#motto {
+  font-style: italic;
+  color: #f7f7ed;
+  font-family: sans-serif;
+  font-size: 15px;
+  position: relative;
+  bottom: -50px;
+  left: 110px;
+  z-index: 10;
+}
+
+
+
+#warning_image {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  left: 400px;
+  bottom: 150px;
+}
+
+#pollutant_text {
+  bottom: 1850px;
+}
+
+#reaction_form {
+  bottom: 1600px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+button {
+  position: relative;
+  padding: 15px 45px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  border-radius: 15px;
+  border: 2px solid lightblue;
+  background: none;
+  color: lightblue;
+  cursor: pointer;
+  outline: none;
+  transition: 200ms;
+    bottom: -20px;
+    left: 100px;
+}
+
+button:hover {
+  color: whitesmoke;
+  border: 2px solid whitesmoke;
+}
+
+i {
+  position: absolute;
+  color: transparent;
+  transition: 200ms;
+}
+button:focus {
+  color: transparent;
+  outline: none;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 25px 25px;
+  border-left: 2px solid lightblue;
+  animation: spin 2s 500ms forwards;
+}
+button:focus i {
+  animation: check 300ms 2250ms forwards;
+}
+
+@keyframes spin {
+  80% {
+    border: 2px solid transparent;
+    border-left: 2px solid lightblue;
+  }
+  100% {
+    transform: rotate(720deg);
+    border: 2px solid lightblue;
+  }
+}
+
+@keyframes check {
+  to {
+    color: lightblue;
+  }
+}

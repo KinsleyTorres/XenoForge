@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3D Protein Viewer</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+  <script src="https://cdn.jsdelivr.net/npm/ngl@2.0.0-dev.38/dist/ngl.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/view-in-3d.css') }}">
+</head>
+<body>
+  <h2>3D Structure for: {{ requested_sequence }}</h2>
+  <div id="viewport"></div>
+  <button id="resetView">Reset View</button>
+  <p>Average pLDDT score: {{ avg_plddt | round(2) if avg_plddt else 'N/A' }}</p>
+  <p>Optimal temperature: {{ temp | round(2) if temp else 'N/A' }}C</p>
+  <p>Optimal pH: {{ pH | round(2) if pH else 'N/A' }}</p>
+
+  <script>
+    // Initialize the viewer in the 'viewport' div
+    const stage = new NGL.Stage("viewport", { backgroundColor: "black" });
+
+    // Load the PDB file from your Flask static path
+    const pdbUrl = "{{ pdb_file }}";
+    console.log("Loading PDB:", pdbUrl);
+
+    stage.loadFile(pdbUrl, { ext: "pdb" }).then(function (component) {
+      component.addRepresentation("cartoon", {colorScheme: "bfactor", colorScale: "RdYlBu",});
+      component.autoView();
+      console.log("✅ Model loaded successfully!");
+    }).catch(function (error) {
+      console.error("❌ Failed to load PDB:", error);
+    });
+
+    // Reset camera view
+    document.getElementById("resetView").addEventListener("click", () => {
+      stage.autoView();
+    });
+
+    // Handle window resizing
+    window.addEventListener("resize", () => stage.handleResize(), false);
+  </script>
+</body>
+</html>
+

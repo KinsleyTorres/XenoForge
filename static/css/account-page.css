@@ -1,0 +1,48 @@
+body {
+    background: #020212;
+    margin: 0;
+    padding: 0;
+    overflow: overlay;
+}
+
+#home-page {
+    position: relative;
+    left: -250px;
+    bottom: -300px;
+}
+
+#register {
+    position: relative;
+    left: 1000px;
+    bottom: -300px;
+}
+
+#sign-in {
+    position: relative;
+    left: 770px;
+    bottom: -300px;
+}
+
+#sign-in:hover {
+  background-position: 0% 100%;
+}
+#register:hover {
+  background-position: 0% 100%;
+}
+
+#home-page:hover {
+  background-position: 0% 100%;
+}
+
+#sign-in, #home-page, #register {
+    color: #f7f7ed;
+    font-family: sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none;
+    background-image: linear-gradient(to right, #18edb4 50%, #020212 50%);
+    background-size: 200% 3px;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    transition: background-position .3s;
+}
