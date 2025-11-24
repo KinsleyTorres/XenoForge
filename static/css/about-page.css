@@ -2,31 +2,32 @@ body {
   background: #00081e;
   margin: 0;
   padding: 0;
-  overflow: overlay;
+  overflow-x: hidden;
 }
 
 #background-img {
   object-fit: contain;
-  height: 2000px;
-  width: 2550px;
+  height: 200%;
+  width: 200%;
   z-index: 1;
-  margin-left: 0px;
-  margin-top: 0px;
-  position: relative;
-  bottom: 750px;
-  padding: 0px;
+  left: -50%;
+  bottom: -15%;
+  margin-left: 0;
+  margin-top: 0;
+  position: absolute;
+  padding: 0;
   filter: brightness(50%);
 }
 
 #app-title {
-  font-size: 70px;
   color: #f7f7ed;
   font-family: sans-serif;
+  font-size: 50px;
   font-weight: bold;
-  position: relative;
-  left: 100px;
-  bottom: 2000px;
-  z-index: 200;
+  position: absolute;
+  left: 8%;
+  bottom: 17%;
+  font-style: italic;
 }
 
 #motto {
@@ -35,9 +36,9 @@ body {
   font-weight: bold;
   font-family: sans-serif;
   font-style: italic;
-  position: relative;
-  left: 100px;
-  bottom: 2000px;
+  position: absolute;
+  bottom: 60%;
+  left: 10%;
   z-index: 200;
 }
 
@@ -75,7 +76,6 @@ body {
 * {
   box-sizing: border-box;
   scrollbar-color: transparent transparent; /* thumb and track color */
-  scrollbar-width: 0px;
 }
 
 *::-webkit-scrollbar {
@@ -104,11 +104,11 @@ ol, li {
 .carousel {
   position: absolute;
   z-index: 100;
-  top: 500px;   /* distance from top of the page */
+  bottom:-40%;   /* distance from top of the page */
   left: 44%;
   transform: translateX(-50%); /* keep it centered */
-  width: 80%;
-  padding-top: 40%;
+  width: 70%;
+  padding-top: 43%;
   filter: drop-shadow(0 0 10px #0003);
   perspective: 100px;
 }
@@ -118,7 +118,7 @@ ol, li {
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
+  bottom: -30%;
   left: 0;
   display: flex;
   overflow-x: scroll;
@@ -130,7 +130,7 @@ ol, li {
 
 .carousel__slide {
   position: relative;
-  scroll-margin-top: 200px;
+  scroll-margin-top: 30px;
   flex: 0 0 100%;
   width: 100%;
   background-color: rgb(0, 0, 0, 0.5);
@@ -271,9 +271,11 @@ ol, li {
 
 #logo {
   object-fit: contain;
-  width: 150px;
-  height: 150px;
-  position: relative;
+  width: 100%;
+  height: 100%;
+  left: -45%;
+  bottom: 0;
+  position: absolute;
 }
 
 #XenoForge-heading {
@@ -281,9 +283,9 @@ ol, li {
   font-family: sans-serif;
   font-size: 50px;
   font-weight: bold;
-  position: relative;
-  left: 130px;
-  bottom: 150px;
+  position: absolute;
+  left: 8%;
+  bottom: -10%;
   font-style: italic;
 }
 
@@ -316,33 +318,34 @@ ol, li {
 }
 
 #about-page {
-  position: relative;
-  bottom: 215px;
-  left: 500px;
+  position: absolute;
+  bottom: 24%;
+  left: 30%;
 }
 
 #account-page {
-  position: relative;
-  bottom: 215px;
-  left: 600px;
+  position: absolute;
+  bottom: 24%;
+  left: 40%;
 }
 
 #home-page {
-  position: relative;
-  bottom: 215px;
-  left: 700px;
+  position: absolute;
+  bottom: 24%;
+  left: 50%;
 }
 #process-page {
-  position: relative;
-  bottom: 215px;
-  left: 800px;
+  position: absolute;
+  bottom: 24%;
+  left: 60%;
 }
 
 #links {
   background-color: rgb(0, 0, 0, 0.5);
   z-index: 999;
-  position: relative;
-  height: 150px;
+  position: absolute;
+  height: 20%;
+  width: 100%;
 }
 
 
@@ -350,21 +353,20 @@ ol, li {
 {
   display: flex;
   position: relative;
-  left: 100px;
+  left: 10%;
   align-items: center;
   flex-wrap: wrap;
-  padding: 40px 0;
 }
 
 .container .box
 {
   position: relative;
-  width: 1000px;
-  height: 700px;
+  width: 75%;
+  height: 75%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 40px 30px;
+  margin: 7% 5%;
   transition: 0.5s;
 }
 
@@ -563,102 +565,27 @@ ol, li {
   box-shadow: 10px 10px 0px rgba(28, 120, 86, 1);
 }
 
-#penguin, #landfill, #turtle, #oil {
-    object-fit: cover;
-    position: relative;
-    width: 250px;
-    height: 250px;
-    border-radius: 20px;
-    box-shadow: 10px 10px 0px rgba(96, 30, 201, 0);
-    transition: 0.3s ease-in-out;
-    border: 2px white solid;
-}
 
-#leaf, #AI, #enzyme, #bacteria {
-    object-fit: cover;
-    position: relative;
-    width: 300px;
-    height: 300px;
-    box-shadow: 10px 10px 0px rgba(96, 30, 201, 0);
-    transition: 0.3s ease-in-out;
-    border-radius: 20px;
-    border: 2px white solid;
-}
-
-#penguin:hover, #landfill:hover, #turtle:hover, #oil:hover {
-  box-shadow: 20px 20px 0px rgba(32, 227, 168, 1);
-  width: 300px;
-  height: 300px;
-  border-radius: 10px;
-}
-
-#leaf:hover, #AI:hover, #enzyme:hover, #bacteria:hover {
-  box-shadow: 20px 20px 0px rgba(32, 227, 168, 1);
-  width: 350px;
-  height: 350px;
-  border-radius: 10px;
-}
-
-#penguin {
-  left: 1350px;
-  bottom: 700px;
-}
-
-#turtle {
-  left: 1400px;
-  bottom: 700px;
-}
-
-#landfill {
-  left: 900px;
-  bottom: 400px;
-}
-
-#oil {
-  left: 850px;
-  bottom: 400px;
-}
-
-#AI {
-  left: 1240px;
-  bottom: 950px;
-}
-
-#enzyme {
-  left: 1150px;
-  bottom: 700px;
-}
-
-#leaf {
-  left: 1300px;
-  bottom: 630px;
-}
-
-#bacteria {
-  left: 1220px;
-  bottom: 900px;
-  z-index: 10;
-}
 
 .rectangle {
-    width: 200px;
-    height: 200px;
+    width: 15%;
+    height: 20%;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    position: relative;
-    left:1450px;
-    bottom: 800px;
+    position: absolute;
+    left: 75%;
+    bottom: 75%;
     z-index:300;
 }
 
 .rectangle2 {
-    width: 200px;
-    height: 200px;
+    width: 15%;
+    height: 20%;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    position: relative;
-    left: 1350px;
-    bottom: 800px;
+    position: absolute;
+    left: 70%;
+    bottom: 75%;
     z-index: 800;
 }
 
